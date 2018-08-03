@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use App\Models\nus;
+use App\Models\OrderGood;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -185,13 +186,59 @@ class MenuController extends Controller
     //菜品统计
     public function count(Request $request)
     {
+        $menu = DB::select("select s.shop_name,m.goods_name,m.goods_img,m.goods_price,sum(g.goods_id) as `sum` 
+from `menus` as m 
+join `shops` as s on s.id=m.shop_id 
+join `order_goods` as g on g.goods_id=m.id
+group by g.goods_id
+order by `sum` desc
+ limit 0,10");
+        $count='';
+        foreach ($menu as $sum){
+            $count +=$sum->sum;
+        }
+        return view('menu/count',compact('keyword','menu','count'));
+    }
+    public function count_day(Request $request)
+    {
         $count=0;
         $keyword = $request->keyword;
         if(!$keyword){
             $keyword = date('Y-m',time());
         }
-        $all = Order::where([['created_at','like',"%{$keyword}%"],['shop_id',auth()->user()->id]])->get();
-        $count = count($all);
-        return view('menu/count_month',compact('keyword','count'));
+        $menu = DB::select("select s.shop_name,m.goods_name,m.goods_img,m.goods_price,sum(g.goods_id) as `sum` 
+from `menus` as m 
+join `shops` as s on s.id=m.shop_id 
+join `order_goods` as g on g.goods_id=m.id
+where g.created_at like '%{$keyword}%' 
+group by g.goods_id
+order by `sum` desc
+ limit 0,10");
+        $count='';
+        foreach ($menu as $sum){
+            $count +=$sum->sum;
+        }
+        return view('menu/count_day',compact('keyword','menu','count'));
+    }
+    public function count_month(Request $request)
+    {
+        $count=0;
+        $keyword = $request->keyword;
+        if(!$keyword){
+            $keyword = date('Y-m',time());
+        }
+        $menu = DB::select("select s.shop_name,m.goods_name,m.goods_img,m.goods_price,sum(g.goods_id) as `sum` 
+from `menus` as m 
+join `shops` as s on s.id=m.shop_id 
+join `order_goods` as g on g.goods_id=m.id
+where g.created_at like '%{$keyword}%' 
+group by g.goods_id
+order by `sum` desc
+ limit 0,10");
+        $count='';
+        foreach ($menu as $sum){
+            $count +=$sum->sum;
+        }
+        return view('menu/count_month',compact('keyword','menu','count'));
     }
 }

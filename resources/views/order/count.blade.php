@@ -5,11 +5,9 @@
 
     <table class="table table-bordered table-hover">
         <tr>
-            {{--<th>创建日期</th>--}}
             <th>订单总数量</th>
         </tr>
             <tr>
-                {{--<td>{{ date('Y-m',strtotime($keyword)) }}</td>--}}
                 <td>{{ $count }}</td>
             </tr>
     </table>

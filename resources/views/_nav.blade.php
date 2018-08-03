@@ -24,7 +24,7 @@
                         <li><a href="{{ route('order.count') }}">订单统计</a></li>
                         <li><a href="{{ route('nu.mc') }}">菜品统计</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="{{ route('Event.index') }}">抽奖活动</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">One more separated link</a></li>
                     </ul>

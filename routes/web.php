@@ -62,3 +62,7 @@ Route::get('/count_month', 'OrderController@count_month')->name('order.count_mon
 Route::get('/mc', 'MenuController@count')->name('nu.mc');//订单列表
 Route::get('/mc_day', 'MenuController@count_day')->name('nu.mc_day');//订单列表(日)
 Route::get('/mc_month', 'MenuController@count_month')->name('nu.mc_month');//订单列表(月)
+//活动报名表 event_members
+Route::resource('Event', 'EventController');
+//报名
+Route::get('/bm/{event}', 'EventController@bm')->name('Event.bm');//订单列表
