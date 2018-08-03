@@ -22,11 +22,10 @@
             <td>{{$Event->prize_date}}</td>
         </tr>
     </table>
-    @if($Event->is_prize==1)
+    {{--@if($Event->is_prize==1)--}}
         <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="编辑"><a href="{{ route('Event.edit',[$Event]) }}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color: #000">sss</span></a>
         </button>
-    @else
-        <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="编辑"><a href="{{ route('Event.edit',[$Event]) }}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color: #000">马上开奖</span></a>
-        </button>
-    @endif
+    {{--@else--}}
+
+    {{--@endif--}}
 @stop

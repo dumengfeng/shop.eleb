@@ -36,4 +36,10 @@ class EventController extends Controller
         return redirect()->route('Event.index');
     }
 
+    //查看详情
+    public function show(Event $Event)
+    {
+        return view('Event/show',compact('Event'));
+    }
+
 }
