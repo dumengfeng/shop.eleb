@@ -17,6 +17,7 @@
                 <li class="active"><a href="{{ route('user.index') }}">账号管理 <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('MenuCategories.index') }}">菜单管理</a></li>
                 <li><a href="{{ route('nu.index') }}">菜品管理</a></li>
+                <li><a href="http://admin.eleb.com/art/index.html">活动列表</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">

@@ -23,8 +23,16 @@
         </tr>
     </table>
     {{--@if($Event->is_prize==1)--}}
-        <button type="button" class="btn btn-default btn-sm" aria-label="Left Align" title="编辑"><a href="{{ route('Event.edit',[$Event]) }}"><span class="glyphicon glyphicon-edit" aria-hidden="true" style="color: #000">sss</span></a>
+    <div class="form-group" style="text-align: center;">
+        <button type="button" class="btn btn-success btn-lg" style="width: 200px;float: right" title="马上报名"><a
+                    href="{{ route('Event.bm',['Event'=>$Event]) }}"><span style="color:#fff2f7;" class="glyphicon glyphicon-hand-right">马上报名</span></a>
         </button>
+        {{ method_field('PATCH') }}
+        {{ csrf_field() }}
+        <div>
+            <a href="{{ route('Event.index') }}" class="btn btn-info btn-lg" style="width: 200px;float: left">返回&nbsp;<span class="glyphicon glyphicon-hand-left"></span></a>
+        </div>
+    </div>
     {{--@else--}}
 
     {{--@endif--}}

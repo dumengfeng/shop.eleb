@@ -38,9 +38,6 @@
                         </button>
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-default btn-sm" aria-label="Left Align" title="删除">
-                            <span class="glyphicon glyphicon-trash" aria-hidden="true" style="color: red">删除</span>
-                        </button>
                     </form>
                 </td>
             </tr>
